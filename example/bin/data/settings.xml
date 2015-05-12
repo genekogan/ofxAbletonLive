@@ -1,0 +1,22 @@
+<AbletonLive>
+	<Global>
+		<tempo>120</tempo>
+		<time>0</time>
+		<overdub>0</overdub>
+		<volume>1</volume>
+		<pan>0</pan>
+		<crossfade>0</crossfade>
+	</Global>
+	<Playback/>
+	<View_Track>
+		<Right>1</Right>
+		<2-Audio>1</2-Audio>
+		<3-Instrument_Rack>0</3-Instrument_Rack>
+		<4-Audio>0</4-Audio>
+		<Return_0>1</Return_0>
+		<Return_1>1</Return_1>
+		<Return_2>0</Return_2>
+		<Return_3>0</Return_3>
+		<Return_4>0</Return_4>
+	</View_Track>
+</AbletonLive>
