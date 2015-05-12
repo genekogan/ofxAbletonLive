@@ -77,14 +77,11 @@ void AbletonGui::setup(ofxAbletonLive * live)
     guiPlayback.add(bNext.setup("next cue", false));
     
     guiSelectActiveTrack.setup("View Tracks");
-
-    cout << "TRACK !" <<live->getTracks().size()<<endl;
     
     map<int, ofxAbletonLiveTrack*>::iterator it = live->getTracks().begin();
     map<int, ofxAbletonLiveReturnTrack*>::iterator itr = live->getReturnTracks().begin();
     for (; it != live->getTracks().end(); ++it)
     {
-        cout << "yo " << endl;
         AbletonGuiTrack *newTrack = new AbletonGuiTrack(it->second);
         tracks.push_back(newTrack);
         newTrack->tVisible.addListener(this, &AbletonGui::eventSelectTrack);
@@ -92,7 +89,6 @@ void AbletonGui::setup(ofxAbletonLive * live)
     }
     for (; itr != live->getReturnTracks().end(); ++itr)
     {
-        cout << "yo 2" << endl;
         AbletonGuiTrack *newTrack = new AbletonGuiTrack(itr->second);
         tracks.push_back(newTrack);
         newTrack->tVisible.addListener(this, &AbletonGui::eventSelectTrack);
