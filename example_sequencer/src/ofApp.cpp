@@ -15,22 +15,42 @@ void ofApp::setup(){
 void ofApp::update(){
     live.update();
     sequencerGlobal.update();
+    sequencerDevice.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     sequencerGlobal.draw();
+    sequencerDevice.draw();
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     if (key==' ')
     {
+        // global sequencer
         sequencerGlobal.setup(8);
+        sequencerGlobal.setPosition(10, 10, 400, 200);
         sequencerGlobal.setSmooth(true);
-        sequencerGlobal.addRow(live.getTrack("2-Audio")->getDevice("Vocoder")->getParameter("Dry/Wet")->getParameter());
+        sequencerGlobal.addRow(&live.getTempo());
         sequencerGlobal.randomize();
-        sequencerGlobal.start();
+        //sequencerGlobal.start();
+        
+        
+        // device sequencer
+        sequencerDevice.setup(8);
+        sequencerDevice.setPosition(10, 250, 400, 500);
+        sequencerDevice.setSmooth(true);
+
+        ofxAbletonLiveDevice *device = live.getTrack("2-Audio")->getDevice("Vocoder");
+        map<int,ofxAbletonLiveParameter*>::iterator it = device->getParameters().begin();
+        for (; it != device->getParameters().end(); ++it) {
+            sequencerDevice.addRow(it->second->getParameter());
+        }
+        
+        sequencerDevice.randomize();
+        sequencerDevice.start();
+        
     }
 }
 
