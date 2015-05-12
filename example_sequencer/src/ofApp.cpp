@@ -14,25 +14,23 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     live.update();
+    sequencerGlobal.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    sequencer.draw();
-    
-    cout << a1 << " " << a2 << endl;
+    sequencerGlobal.draw();
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if (key==' ') {
-        sequencer.setup(10);
-        
-        sequencer.addRow(&a1);
-        sequencer.addRow(&a2);
-        
-        
-        sequencer.start();
+    if (key==' ')
+    {
+        sequencerGlobal.setup(8);
+        sequencerGlobal.setSmooth(true);
+        sequencerGlobal.addRow(live.getTrack("2-Audio")->getDevice("Vocoder")->getParameter("Dry/Wet")->getParameter());
+        sequencerGlobal.randomize();
+        sequencerGlobal.start();
     }
 }
 

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxGui.h"
 #include "ofxAbletonLive.h"
 
 class ofApp : public ofBaseApp{
