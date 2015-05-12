@@ -20,6 +20,8 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    ofSetColor(0);
+    ofDrawBitmapString("press spacebar to load ableton and setup sequencers", 10, 20);
     sequencerGlobal.draw();
     sequencerDevice.draw();
 }
@@ -32,10 +34,9 @@ void ofApp::keyPressed(int key){
         sequencerGlobal.setup(8);
         sequencerGlobal.setPosition(10, 10, 400, 200);
         sequencerGlobal.setSmooth(true);
-        sequencerGlobal.addRow(&live.getTempo());
+        sequencerGlobal.addRow(&live.getPan());
         sequencerGlobal.randomize();
-        //sequencerGlobal.start();
-        
+        sequencerGlobal.start();
         
         // device sequencer
         sequencerDevice.setup(8);
