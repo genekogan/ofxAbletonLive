@@ -3,8 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     // can connect to AbletonLive in localhost (same machine) or over the network if an IP address given.
-    // second argument is whether or not to setup a GUI
-    live.setup("localhost");
+    // additionally provide an event listener for when live has been setup
+    live.setup("localhost", this, &ofApp::setupAbletonGui);
     
     // it takes a couple of seconds to parse all the OSC data and build the gui.
     // wait a few seconds before calling any of the getter functions for it to populate the data
@@ -19,18 +19,22 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofSetColor(0);
-    ofDrawBitmapString("press spacebar to generate gui", 10, 20);
-
     gui.draw();
+}
+
+//--------------------------------------------------------------
+void ofApp::setupAbletonGui()
+{
+    // setupAbletonGui() was passed to the live setup method and will
+    // automatically be called when live has finished parsing. at that
+    // point we can generate a gui
+    gui.setup(&live);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
-    if (key==' ') {
-        gui.setup(&live);
-    }
+    
 }
 
 //--------------------------------------------------------------

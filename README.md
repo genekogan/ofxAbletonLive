@@ -28,6 +28,13 @@ By default, the app connects to Live over localhost. You can also connect over t
 
     live.setup("192.168.1.2")
 
+Optionally you can pass a callback method to be called once ofxAbletonLive is finished parsing the current live set (after setup has been called). The callback method has no arguments.
+
+    //void ofApp::myCallback() {}
+
+    live.setup(this, &ofApp::myCallback);
+    live.setup("192.168.1.2", this, &ofApp::myCallback);
+
 Note also that ofxAbletonLive handles communication with Ableton through ports 9000 and 9001. Make sure these ports are not occupied if you are getting no results (including through another instance of ofxAbletonLive).
 
 There are getters and setters for global variables in Live.

@@ -18,6 +18,11 @@ public:
     ~ofxAbletonLive();
     
     void setup(string abletonOscHost = ABLETON_OSC_HOST_DEFAULT);
+    template<typename L, typename M>
+    void setup(string abletonOscHost, L *listener, M method);
+    template<typename L, typename M>
+    void setup(L *listener, M method);
+
     void refresh();
     bool isLoaded() {return loaded;}
     
@@ -117,4 +122,20 @@ protected:
     ofxOscReceiver receiver;
     string abletonOscHost;
     bool loaded;
+    ofEvent<void> abletonLoadedE;
 };
+
+
+template<typename L, typename M>
+void ofxAbletonLive::setup(string abletonOscHost, L *listener, M method)
+{
+    ofAddListener(abletonLoadedE, listener, method);
+    setup(abletonOscHost);
+}
+
+template<typename L, typename M>
+void ofxAbletonLive::setup(L *listener, M method)
+{
+    ofAddListener(abletonLoadedE, listener, method);
+    setup();
+}

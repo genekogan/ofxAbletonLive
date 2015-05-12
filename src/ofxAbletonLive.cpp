@@ -283,6 +283,7 @@ void ofxAbletonLive::checkIfTracksLoaded()
         }
     }
     loaded = true;
+    ofNotifyEvent(abletonLoadedE);
 }
 
 void ofxAbletonLive::processParameterUpdate(ofxOscMessage &m)
@@ -533,6 +534,9 @@ string ofxAbletonLive::getAllString()
 
 ofxAbletonLive::~ofxAbletonLive()
 {
+    abletonLoadedE.clear();
+    abletonLoadedE.disable();
+    
     tempo.removeListener(this, &ofxAbletonLive::eventTempo);
     time.removeListener(this, &ofxAbletonLive::eventTime);
     overdub.removeListener(this, &ofxAbletonLive::eventOverdub);

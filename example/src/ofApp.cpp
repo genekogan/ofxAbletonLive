@@ -8,9 +8,15 @@ void ofApp::setup(){
     // can also connect over the network if IP address specified, e.g.
     //live.setup("192.168.1.15");
     
+    // lastly you can provide a callback method (with no arguments)
+    // to be called once live has finished parsing, as in the following:
+    //live.setup(this, &ofApp::myCallbackMethod);
+    //live.setup("192.168.1.15", this, &ofApp::myCallbackMethod);
+    
     // ofxAbletonLive takes a few seconds to get all the data over OSC from Ableton.
     // during this time, parameters aren't visible yet or accessible.
-    // you can check the status by calling live.isLoaded()
+    // you can check the status by calling live.isLoaded(), or as described above,
+    // you can pass a callback method to the setup
     
 }
 
