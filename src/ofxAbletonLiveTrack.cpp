@@ -105,7 +105,7 @@ void ofxAbletonLiveTrack::setArmed(bool arm)
 {
     this->arm = arm;
     ofxOscMessage msg;
-    msg.setAddress(addrMute);
+    msg.setAddress(addrArm);
     msg.addIntArg(track);
     msg.addIntArg(arm ? 1 : 0);
     sender->sendMessage(msg);
@@ -127,7 +127,7 @@ void ofxAbletonLiveTrack::setSolo(bool solo)
     ofxOscMessage msg;
     msg.setAddress(addrSolo);
     msg.addIntArg(track);
-    msg.addIntArg(arm ? 1 : 0);
+    msg.addIntArg(solo ? 1 : 0);
     sender->sendMessage(msg);
 }
 
