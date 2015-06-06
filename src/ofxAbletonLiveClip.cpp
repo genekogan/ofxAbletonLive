@@ -8,13 +8,6 @@ ofxAbletonLiveClip::ofxAbletonLiveClip(string name, int track, int clip, ofxOscS
     this->clip = clip;
     this->sender = sender;
     
-    loopStart.addListener(this, &ofxAbletonLiveClip::eventLoopStart);
-    loopEnd.addListener(this, &ofxAbletonLiveClip::eventLoopEnd);
-    looping.addListener(this, &ofxAbletonLiveClip::eventLooping);
-    transpose.addListener(this, &ofxAbletonLiveClip::eventTranspose);
-    detune.addListener(this, &ofxAbletonLiveClip::eventDetune);
-    warp.addListener(this, &ofxAbletonLiveClip::eventWarp);
-
     parameterGroup.setName(name);
     parameterGroup.add(loopStart.set("loop start", 0, 0, 100));
     parameterGroup.add(loopEnd.set("loop end", 0, 0, 100));
@@ -22,6 +15,13 @@ ofxAbletonLiveClip::ofxAbletonLiveClip(string name, int track, int clip, ofxOscS
     parameterGroup.add(transpose.set("transpose", 0, -48, 48));
     parameterGroup.add(detune.set("detune", 0, -50, 50));
     parameterGroup.add(warp.set("warp", false));
+    
+    loopStart.addListener(this, &ofxAbletonLiveClip::eventLoopStart);
+    loopEnd.addListener(this, &ofxAbletonLiveClip::eventLoopEnd);
+    looping.addListener(this, &ofxAbletonLiveClip::eventLooping);
+    transpose.addListener(this, &ofxAbletonLiveClip::eventTranspose);
+    detune.addListener(this, &ofxAbletonLiveClip::eventDetune);
+    warp.addListener(this, &ofxAbletonLiveClip::eventWarp);
 }
 
 void ofxAbletonLiveClip::play()

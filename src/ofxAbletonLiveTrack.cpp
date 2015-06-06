@@ -47,17 +47,17 @@ ofxAbletonLiveTrack::ofxAbletonLiveTrack(string name, int track, ofxOscSender * 
 
 void ofxAbletonLiveTrack::setupTrack()
 {
-    arm.addListener(this, &ofxAbletonLiveTrack::eventSetArmed);
-    mute.addListener(this, &ofxAbletonLiveTrack::eventSetMute);
-    solo.addListener(this, &ofxAbletonLiveTrack::eventSetSolo);
-    volume.addListener(this, &ofxAbletonLiveTrack::eventSetVolume);
-    pan.addListener(this, &ofxAbletonLiveTrack::eventSetPan);
-
     arm.set("armed", false);
     mute.set("mute", false);
     solo.set("solo", false);
     volume.set("volume", 0.5, 0.0, 1.0);
     pan.set("pan", 0.0, -1.0, 1.0);
+
+    arm.addListener(this, &ofxAbletonLiveTrack::eventSetArmed);
+    mute.addListener(this, &ofxAbletonLiveTrack::eventSetMute);
+    solo.addListener(this, &ofxAbletonLiveTrack::eventSetSolo);
+    volume.addListener(this, &ofxAbletonLiveTrack::eventSetVolume);
+    pan.addListener(this, &ofxAbletonLiveTrack::eventSetPan);
 }
 
 void ofxAbletonLiveTrack::addDevice(string name, int device)
@@ -268,7 +268,7 @@ void ofxAbletonLiveTrack::clear()
 ofxAbletonLiveTrack::~ofxAbletonLiveTrack()
 {
     arm.removeListener(this, &ofxAbletonLiveTrack::eventSetArmed);
-    mute.addListener(this, &ofxAbletonLiveTrack::eventSetMute);
+    mute.removeListener(this, &ofxAbletonLiveTrack::eventSetMute);
     solo.removeListener(this, &ofxAbletonLiveTrack::eventSetSolo);
     volume.removeListener(this, &ofxAbletonLiveTrack::eventSetVolume);
     pan.removeListener(this, &ofxAbletonLiveTrack::eventSetPan);

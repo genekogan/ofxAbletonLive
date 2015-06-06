@@ -27,6 +27,8 @@ public:
     bool isLoaded() {return loaded;}
     
     void update();
+    
+    void drawDebugView();
 
     void play();
     void playContinue();

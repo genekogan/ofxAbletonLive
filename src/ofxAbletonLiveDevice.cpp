@@ -8,8 +8,8 @@ ofxAbletonLiveDevice::ofxAbletonLiveDevice(string name, int track, int device, o
     this->device = device;
     this->sender = sender;
     initialized = false;
-    enabled.addListener(this, &ofxAbletonLiveDevice::eventSetEnabled);
     enabled.set("Device On", false);
+    enabled.addListener(this, &ofxAbletonLiveDevice::eventSetEnabled);
     parameterGroup = new ofParameterGroup();
     parameterGroup->setName(name);
     parameterGroup->add(enabled);
@@ -119,6 +119,7 @@ string ofxAbletonLiveDevice::getParametersInfo()
 
 ofxAbletonLiveDevice::~ofxAbletonLiveDevice()
 {
+    enabled.removeListener(this, &ofxAbletonLiveDevice::eventSetEnabled);
     clear();
     delete parameterGroup;
 }

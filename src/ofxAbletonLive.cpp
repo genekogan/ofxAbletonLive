@@ -9,13 +9,6 @@ void ofxAbletonLive::setup(string abletonOscHost)
     sender.setup(abletonOscHost, ABLETON_OSC_PORT_OUT);
     receiver.setup(ABLETON_OSC_PORT_IN);
     
-    tempo.addListener(this, &ofxAbletonLive::eventTempo);
-    time.addListener(this, &ofxAbletonLive::eventTime);
-    overdub.addListener(this, &ofxAbletonLive::eventOverdub);
-    volume.addListener(this, &ofxAbletonLive::eventVolume);
-    pan.addListener(this, &ofxAbletonLive::eventPan);
-    crossfade.addListener(this, &ofxAbletonLive::eventCrossfade);
-
     tempo.set("tempo", 120, 4, 999);
     time.set("time", 0, 0, 999);
     overdub.set("overdub", false);
@@ -23,6 +16,13 @@ void ofxAbletonLive::setup(string abletonOscHost)
     pan.set("pan", 0, -1, 1);
     crossfade.set("crossfade", 0, -1, 1);
     
+    tempo.addListener(this, &ofxAbletonLive::eventTempo);
+    time.addListener(this, &ofxAbletonLive::eventTime);
+    overdub.addListener(this, &ofxAbletonLive::eventOverdub);
+    volume.addListener(this, &ofxAbletonLive::eventVolume);
+    pan.addListener(this, &ofxAbletonLive::eventPan);
+    crossfade.addListener(this, &ofxAbletonLive::eventCrossfade);
+
     scanLiveSet();
 }
 
@@ -203,6 +203,38 @@ void ofxAbletonLive::update()
             processTrack(m);
         }
     }
+}
+
+void ofxAbletonLive::drawDebugView()
+{
+    ofPushStyle();
+    ofSetColor(0);
+    
+    if (!isLoaded()) {
+        ofDrawBitmapString("ofxAbletonLive has not loaded yet!", 100, 100);
+        return;
+    }
+    
+    ofDrawBitmapString(getTrackString(), 10, 15);
+    int x = 200;
+    
+    map<int, ofxAbletonLiveTrack*>::iterator it = getTracks().begin();
+    for (; it != getTracks().end(); ++it)
+    {
+        string trackString = "Track " + ofToString(it->first) + ": \"" + it->second->getName() + "\"\n";
+        trackString += it->second->getDevicesInfo();
+        trackString += it->second->getClipsInfo();
+        
+        map<int, ofxAbletonLiveDevice*>::iterator itd = it->second->getDevices().begin();
+        for (; itd != it->second->getDevices().end(); ++itd) {
+            trackString += itd->second->getParametersInfo();
+        }
+        
+        ofDrawBitmapString(trackString, x, 15);
+        x += 300;
+    }
+    
+    ofPopStyle();
 }
 
 void ofxAbletonLive::processClip(ofxOscMessage &m)

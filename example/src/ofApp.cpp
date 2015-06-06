@@ -17,7 +17,6 @@ void ofApp::setup(){
     // during this time, parameters aren't visible yet or accessible.
     // you can check the status by calling live.isLoaded(), or as described above,
     // you can pass a callback method to the setup
-    
 }
 
 //--------------------------------------------------------------
@@ -29,6 +28,9 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofSetColor(0);
+    
+    // this draw method prints all of the relevant info from ofxAbletonLive
+    // you can also call live.drawDebugView() to do the same
     
     // you can check if Live has finished loading all parameters since setup was called
     if (!live.isLoaded()) {
