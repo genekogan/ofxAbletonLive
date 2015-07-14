@@ -23,6 +23,8 @@ public:
     template<typename L, typename M>
     void setup(L *listener, M method);
 
+    template<typename L, typename M>
+    void refresh(L *listener, M method);
     void refresh();
     bool isLoaded() {return loaded;}
     
@@ -140,4 +142,13 @@ void ofxAbletonLive::setup(L *listener, M method)
 {
     ofAddListener(abletonLoadedE, listener, method);
     setup();
+}
+
+template<typename L, typename M>
+void ofxAbletonLive::refresh(L *listener, M method)
+{
+    abletonLoadedE.clear();
+    ofAddListener(abletonLoadedE, listener, method);
+    clear();
+    scanLiveSet();
 }

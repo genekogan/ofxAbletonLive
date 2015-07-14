@@ -314,8 +314,10 @@ void ofxAbletonLive::checkIfTracksLoaded()
             if (!itd->second->getInitialized()) return;
         }
     }
-    loaded = true;
-    ofNotifyEvent(abletonLoadedE);
+    if (!loaded) {
+        loaded = true;
+        ofNotifyEvent(abletonLoadedE);
+    }
 }
 
 void ofxAbletonLive::processParameterUpdate(ofxOscMessage &m)
@@ -397,6 +399,7 @@ void ofxAbletonLive::stop()
 
 void ofxAbletonLive::setTempo(float tempo)
 {
+    cout << "set tempo " << tempo << endl;
     this->tempo = tempo;
     ofxOscMessage msg;
     msg.setAddress("/live/tempo");

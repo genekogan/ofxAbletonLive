@@ -12,6 +12,7 @@ void ofApp::setup(){
     // to be called once live has finished parsing, as in the following:
     //live.setup(this, &ofApp::myCallbackMethod);
     //live.setup("192.168.1.15", this, &ofApp::myCallbackMethod);
+    //live.setup("localhost", this, &ofApp::myCallbackMethod);
     
     // ofxAbletonLive takes a few seconds to get all the data over OSC from Ableton.
     // during this time, parameters aren't visible yet or accessible.
