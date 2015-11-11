@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>32288A11-8E64-4EC5-ABEC-8A856B4FD7C5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>example_sequencer</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>39642EB9A7960140EE36619E322E5815FF36D10C</key>
+		<string>https://github.com/genekogan/ofxAbletonLive.git</string>
+		<key>DCB06540D2879CF2E8C6177E755A991AED234FD2</key>
+		<string>https://github.com/genekogan/ofxSequencer.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>example_sequencer/example_sequencer.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>39642EB9A7960140EE36619E322E5815FF36D10C</key>
+		<string>../../..</string>
+		<key>DCB06540D2879CF2E8C6177E755A991AED234FD2</key>
+		<string>../../../../ofxSequencer</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/genekogan/ofxAbletonLive.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>39642EB9A7960140EE36619E322E5815FF36D10C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>39642EB9A7960140EE36619E322E5815FF36D10C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxAbletonLive</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DCB06540D2879CF2E8C6177E755A991AED234FD2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxSequencer</string>
+		</dict>
+	</array>
+</dict>
+</plist>

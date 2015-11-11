@@ -1,4 +1,4 @@
+ofxAbletonLive
 ofxGui
 ofxOsc
-ofxAbletonLive
 ofxSequencer

@@ -569,7 +569,6 @@ string ofxAbletonLive::getAllString()
 
 ofxAbletonLive::~ofxAbletonLive()
 {
-    abletonLoadedE.clear();
     abletonLoadedE.disable();
     
     tempo.removeListener(this, &ofxAbletonLive::eventTempo);

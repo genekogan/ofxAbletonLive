@@ -147,7 +147,6 @@ void ofxAbletonLive::setup(L *listener, M method)
 template<typename L, typename M>
 void ofxAbletonLive::refresh(L *listener, M method)
 {
-    abletonLoadedE.clear();
     ofAddListener(abletonLoadedE, listener, method);
     clear();
     scanLiveSet();
