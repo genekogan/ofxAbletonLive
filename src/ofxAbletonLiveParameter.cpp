@@ -5,13 +5,14 @@ ofxAbletonLiveParameter::~ofxAbletonLiveParameter()
     delete parameter;
 }
 
-ofxAbletonLiveParameter::ofxAbletonLiveParameter(ofParameter<float> *parameter, int track, int device, int index, ofxOscSender *sender)
+ofxAbletonLiveParameter::ofxAbletonLiveParameter(ofParameter<float> *parameter, int track, int device, int index, ofxOscSender *sender, bool skipTrack)
 {
     this->parameter = parameter;
     this->track = track;
     this->device = device;
     this->index = index;
     this->sender = sender;
+    this->skipTrack = skipTrack;
     oscAddress = "/live/device";
     parameter->addListener(this, &ofxAbletonLiveParameter::parameterChanged);
 }
@@ -21,7 +22,9 @@ void ofxAbletonLiveParameter::setValue(float value)
     parameter->set(value);
     ofxOscMessage msg;
     msg.setAddress(oscAddress);
-    msg.addIntArg(track);
+    if (!skipTrack) {
+        msg.addIntArg(track);
+    }
     msg.addIntArg(device);
     msg.addIntArg(index);
     msg.addFloatArg(value);

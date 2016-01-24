@@ -60,8 +60,8 @@ public:
     
     string getClipsInfo();
     string getDevicesInfo();
-    void printClips() {cout << getClipsInfo() << endl;}
-    void printDevices() {cout << getDevicesInfo() << endl;}
+    void printClips() {ofLog() << getClipsInfo();}
+    void printDevices() {ofLog() << getDevicesInfo();}
     
 protected:
 
@@ -114,5 +114,23 @@ public:
         addrPan = "/live/return/pan";
         addrSend = "/live/return/send";
         isReturnTrack = true;
+    }
+};
+
+
+class ofxAbletonLiveMasterTrack : public ofxAbletonLiveTrack
+{
+public:
+    ofxAbletonLiveMasterTrack(string name, ofxOscSender * sender) : ofxAbletonLiveTrack(name, 0, sender)
+    {
+        addrStop = "/live/master/stop"; // not implemented
+        addrClip = "/live/master/play/clipslot"; // not implemented
+        addrArm = "/live/master/arm"; // not implemented
+        addrMute = "/live/master/mute";
+        addrSolo = "/live/master/solo";
+        addrVolume = "/live/master/volume";
+        addrPan = "/live/master/pan";
+        addrSend = "/live/master/send";
+        isReturnTrack = false;
     }
 };

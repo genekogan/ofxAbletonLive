@@ -25,13 +25,13 @@ public:
     ofParameterGroup * getParameterGroup() {return parameterGroup;}
     
     string getParametersInfo();
-    void printParameters() {cout << getParametersInfo() << endl;}
+    void printParameters() {ofLog() << getParametersInfo();}
     
 protected:
 
-    void addParameter(int index, string name, float value, bool isReturn=false);
-    void receiveParameterValues(ofxOscMessage &m, bool isReturn=false);
-    void receiveParameterRanges(ofxOscMessage &m);
+    void addParameter(int index, string name, float value, int trackType);
+    void receiveParameterValues(ofxOscMessage &m, int trackType);
+    void receiveParameterRanges(ofxOscMessage &m, int trackType);
     void clear();
     void eventSetEnabled(bool &b) {setEnabled(enabled);}
     bool getInitialized() {return initialized;}

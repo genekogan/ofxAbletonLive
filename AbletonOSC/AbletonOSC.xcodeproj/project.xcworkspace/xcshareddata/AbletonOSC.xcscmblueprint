@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "39642EB9A7960140EE36619E322E5815FF36D10C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6312B7038589401E7479B6C0597D1304EB8371F6" : 0,
+    "39642EB9A7960140EE36619E322E5815FF36D10C" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C8ADE07A-BB18-44DA-B33A-05FBC9CBE480",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6312B7038589401E7479B6C0597D1304EB8371F6" : "ofxControl\/",
+    "39642EB9A7960140EE36619E322E5815FF36D10C" : "ofxAbletonLive\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "AbletonOSC",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "AbletonOSC\/AbletonOSC.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/genekogan\/ofxAbletonLive.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "39642EB9A7960140EE36619E322E5815FF36D10C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/genekogan\/ofxControl.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6312B7038589401E7479B6C0597D1304EB8371F6"
+    }
+  ]
+}

@@ -272,5 +272,5 @@ ofxAbletonLiveTrack::~ofxAbletonLiveTrack()
     solo.removeListener(this, &ofxAbletonLiveTrack::eventSetSolo);
     volume.removeListener(this, &ofxAbletonLiveTrack::eventSetVolume);
     pan.removeListener(this, &ofxAbletonLiveTrack::eventSetPan);
-    clear();
+    //clear();
 }

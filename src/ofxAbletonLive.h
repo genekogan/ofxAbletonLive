@@ -11,7 +11,6 @@
 #define ABLETON_OSC_PORT_OUT 9000
 #define ABLETON_OSC_PORT_IN 9001
 
-
 class ofxAbletonLive
 {
 public:
@@ -26,6 +25,7 @@ public:
     template<typename L, typename M>
     void refresh(L *listener, M method);
     void refresh();
+    
     bool isLoaded() {return loaded;}
     
     void update();
@@ -60,26 +60,28 @@ public:
 
     map<int, ofxAbletonLiveTrack*> & getTracks() {return tracks;}
     map<int, ofxAbletonLiveReturnTrack*> & getReturnTracks() {return returnTracks;}
-
+    
     ofxAbletonLiveTrack * getTrack(int track);
     ofxAbletonLiveTrack * getTrack(string name);
     ofxAbletonLiveReturnTrack * getReturnTrack(int track);
     ofxAbletonLiveReturnTrack * getReturnTrack(string name);
+    ofxAbletonLiveMasterTrack * getMasterTrack() {return masterTrack;}
     
     string getTrackString();
     string getAllString();
-    void printTracks() {cout<<getTrackString()<<endl;}
-    void printAll() {cout<<getAllString()<<endl;}
-    
-protected:
+    void printTracks() {ofLog() << getTrackString();}
+    void printAll() {ofLog() << getAllString();}
 
     void clear();
     void scanLiveSet();
 
+protected:
+
     void addNewTrack(int track, string name);
     void addNewReturnTrack(int track);
+    void addNewMasterTrack();
     void addSend(int track);
-    void initializeSends(ofxAbletonLiveTrack *track, bool isReturn);
+    void initializeSends(ofxAbletonLiveTrack *track, int trackType);
     void checkIfTracksLoaded();
     void displayOscMessage(ofxOscMessage &m);
 
@@ -87,14 +89,15 @@ protected:
     void requestNumTracks();
     void requestTrack(int track);
     void requestClipsList();
-    void requestDeviceList(int track, bool isReturn=false);
-    void requestDeviceParameters(int track, int device, bool isReturn=false);
-    void requestDeviceParametersRange(int track, int device, bool isReturn=false);
+    void requestDeviceList(int track, int trackType);
+    void requestDeviceListMaster();
+    void requestDeviceParameters(int track, int device, int trackType);
+    void requestDeviceParametersRange(int track, int device, int trackType);
 
     void processClip(ofxOscMessage &m);
-    void processDeviceList(ofxOscMessage &m, bool isReturn);
-    void processDeviceParameters(ofxOscMessage &m, bool isReturn);
-    void processDeviceParametersRange(ofxOscMessage &m, bool isReturn);
+    void processDeviceList(ofxOscMessage &m, int trackType);
+    void processDeviceParameters(ofxOscMessage &m, int trackType);
+    void processDeviceParametersRange(ofxOscMessage &m, int trackType);
 
     void processParameterUpdate(ofxOscMessage &m);
     void processNumScenes(ofxOscMessage &m);
@@ -110,6 +113,7 @@ protected:
 
     map<int, ofxAbletonLiveTrack*> tracks;
     map<int, ofxAbletonLiveReturnTrack*> returnTracks;
+    ofxAbletonLiveMasterTrack *masterTrack;
     map<string, ofxAbletonLiveTrack*> tracksLU;
     map<string, ofxAbletonLiveReturnTrack*> returnTracksLU;
     int numTracks;

@@ -7,7 +7,7 @@ class ofxAbletonLiveParameter
 {
     friend class ofxAbletonLiveDevice;
 public:
-    ofxAbletonLiveParameter(ofParameter<float> *parameter, int track, int device, int index, ofxOscSender *sender);
+    ofxAbletonLiveParameter(ofParameter<float> *parameter, int track, int device, int index, ofxOscSender *sender, bool skipTrack=false);
     ~ofxAbletonLiveParameter();
     
     string getName() {return parameter->getName();}
@@ -33,4 +33,5 @@ protected:
     int index;
     string oscAddress;
     ofxOscSender *sender;
+    bool skipTrack;
 };
