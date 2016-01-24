@@ -33,7 +33,7 @@ void ofxAbletonLiveDevice::addParameter(int index, string name, float value, int
     if (!parameterGroup->contains(name) && name != "Device On") // skip "Device On" which is handled by separate ofParameter
     {
         ofParameter<float> *newParameter = new ofParameter<float>(name, value);
-        ofxAbletonLiveParameter *newLiveParameter = new ofxAbletonLiveParameter(newParameter, track, device, index, sender, true);
+        ofxAbletonLiveParameter *newLiveParameter = new ofxAbletonLiveParameter(newParameter, track, device, index, sender, false);
         parameters[index] = newLiveParameter;
         parametersLU[name] = parameters[index];
         parameterGroup->add(*newParameter);
@@ -42,6 +42,7 @@ void ofxAbletonLiveDevice::addParameter(int index, string name, float value, int
         }
         else if (trackType==2) {
             newLiveParameter->setOscAddress("/live/master/device");
+            newLiveParameter->skipTrack = true;
         }
     }
 }
