@@ -15,6 +15,18 @@ Most of Ableton's main features are implemented, but not all. A list of the OSC 
 * Try the examples. Live communicates with your app over ports 9000 and 9001, so make sure those are not occupied (including by another instance of ofxAbletonLive)
 
 
+#### Fix for Ableton 9.6+
+
+If LiveOSC fails to work in most recent version of Ableton, [this apparently fixes it](http://disq.us/p/15j82c7) -- find the file `socket_live8.py` and comment out the following block of code (lines 74-79):
+
+    # if _have_ssl:
+    # _realssl = ssl
+    # def ssl(sock, keyfile=None, certfile=None):
+    # if hasattr(sock, "_sock"):
+    # sock = sock._sock
+    # return _realssl(sock, keyfile, certfile)
+
+
 ## Usage
 
 The main class is `ofxAbletonLive`. An instance of `ofxAbletonLive` contains a collection of `ofxAbletonLiveTrack`. An `ofxAbletonLiveTrack` instance contains a collection of `ofxAbletonLiveClip` and `ofxAbletonLiveDevice`. `ofxAbletonDevice` contains a collection of `ofxAbletonLiveParameter`. All classes have various properties that can be set remotely.
@@ -159,3 +171,4 @@ Working with a track's devices
  - LiveOSC does not distinguish any of the features by type (int, float) so all parameters are handled as floats -- including even menus, i.e. a device parameter which is a menu can be set by sending it a float corresponding to the index of the choice you want to select. Only exception is the "Device On" parameter which is hardcoded as a boolean.
  - LiveOSC doesn't expose all of Ableton's features -- it basically makes accessible anything that is MIDI-controllable. So you can't load clips/devices on the fly or change some of the properties of the clips
  - To-do: Handle more incoming messages (beats)
+
