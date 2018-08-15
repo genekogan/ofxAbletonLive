@@ -7,12 +7,12 @@ Most of Ableton's main features are implemented, but not all. A list of the OSC 
 * [Download](http://livecontrol.q3f.org/ableton-liveapi/liveosc/) LiveOSC.
 
 * Place the "LiveOSC" folder (inside "trunk") into the Midi Remote Scripts folder in your Live App.
- * On OSX, go to your applications folder, right click Ableton and select "show package contents", then navigate to Contents/App-Resources/MIDI Remote Scripts and paste there.
- * On Windows, paste into \path\to\ableton\Live x.x.x\Resources\MIDI\Remote Scripts
+ * On OSX, go to your applications folder, right click Ableton and select "show package contents", then navigate to `Contents/App-Resources/MIDI Remote Scripts` and paste there.
+ * On Windows, paste into `\path\to\ableton\Live x.x.x\Resources\MIDI\Remote Scripts`
 
-* Restart Ableton. Go to preferences -> MIDI. LiveOSC should show up in the drop-down menu under "Control Surface". Select it.
+* Restart Ableton. Go to `preferences` -> `MIDI`. LiveOSC should show up in the drop-down menu under "Control Surface". Select it.
 
-* Try the examples. Live communicates with your app over ports 9000 and 9001, so make sure those are not occupied (including by another instance of ofxAbletonLive)
+* Try the examples. Live communicates with your app over ports `9000` and `9001`, so make sure those are not occupied (including by another instance of ofxAbletonLive)
 
 
 #### Fix for Ableton 9.6+
