@@ -4,7 +4,7 @@ Most of Ableton's main features are implemented, but not all. A list of the OSC 
 
 ## Installation
 
-* [Download](http://livecontrol.q3f.org/ableton-liveapi/liveosc/) LiveOSC.
+* [Download LiveOSC from the releases page](https://github.com/genekogan/ofxAbletonLive/releases/download/v1.0/LiveOSC.zip).
 
 * Place the "LiveOSC" folder (inside "trunk") into the Midi Remote Scripts folder in your Live App.
  * On OSX, go to your applications folder, right click Ableton and select "show package contents", then navigate to Contents/App-Resources/MIDI Remote Scripts and paste there.
